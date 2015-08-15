@@ -26,6 +26,13 @@ script:
   - date ; uname -a ; pwd ; ls -l ..; echo $HOSTNAME $USER
   - mkdir /tmp/testWDT
   - df -h /tmp/testWDT
+  - df -h
+  - mkdir /tmp/testWDT/a
+  - ln -s /tmp/testWDT/a /tmp/testWDT/a/b
+  - ls -lR /tmp/testWDT
+  - stat /tmp/testWDT/a
+  - stat /tmp/testWDT/a/b
+  - stat /tmp/testWDT/a/b/a
   - cat /etc/fstab
   - ulimit -a
 
