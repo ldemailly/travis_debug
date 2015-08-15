@@ -32,7 +32,11 @@ script:
   - ls -lR /tmp/testWDT
   - stat /tmp/testWDT/a
   - stat /tmp/testWDT/a/b
-  - stat /tmp/testWDT/a/b/a
+  - stat /tmp/testWDT/a/b/b
+  - stat -f /tmp/testWDT/a
+  - stat -f /tmp/testWDT/a/b/b
+  - stat -L /tmp/testWDT/a/b/b
+  - stat -f -L /tmp/testWDT/a/b/b/b
   - cat /etc/fstab
   - ulimit -a
 
