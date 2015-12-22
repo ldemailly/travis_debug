@@ -19,7 +19,7 @@ addons:
 #      - clang-3.6
 #      - libboost-system1.55-dev
       - openssl
-      - libssl
+      - libssl-dev
 
 script:
   # Debug
@@ -33,6 +33,7 @@ script:
   - dpkg -S  /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
 #  - dpkg -s libssl
 #  - dpkg -L libssl
+  - dpkg -l | grep ssl
 
 before_install:
   - echo "Travis os name $TRAVIS_OS_NAME"
