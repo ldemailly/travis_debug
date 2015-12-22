@@ -4,11 +4,9 @@ language: cpp
 
 os:
   - linux
-#  - osx
 
 compiler:
-  - clang
-  #- gcc
+  - gcc
 
 addons:
   apt:
@@ -20,25 +18,13 @@ addons:
       #- g++-4.9
 #      - clang-3.6
 #      - libboost-system1.55-dev
+      - openssl
 
 script:
   # Debug
   - date ; uname -a ; pwd ; ls -l ..; echo $HOSTNAME $USER
-  - mkdir /tmp/testWDT
-  - df -h /tmp/testWDT
-  - df -h
-  - mkdir /tmp/testWDT/a
-  - ln -s /tmp/testWDT/a /tmp/testWDT/a/b
-  - ls -lR /tmp/testWDT
-  - stat /tmp/testWDT/a
-  - stat /tmp/testWDT/a/b
-  - stat /tmp/testWDT/a/b/b
-  - stat -f /tmp/testWDT/a
-  - stat -f /tmp/testWDT/a/b/b
-  - stat -L /tmp/testWDT/a/b/b
-  - stat -f -L /tmp/testWDT/a/b/b/b
-  - cat /etc/fstab
-  - ulimit -a
+  - openssl version
+  - nc -6 -l 12345 > /dev/null & echo foo | nc -6 -v ::1 12345
 
 before_install:
   - echo "Travis os name $TRAVIS_OS_NAME"
