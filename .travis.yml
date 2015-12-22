@@ -23,7 +23,7 @@ addons:
 script:
   # Debug
   - date ; uname -a ; pwd ; ls -l ..; echo $HOSTNAME $USER
-  - openssl version
+  - openssl version -a
   - nc -6 -l 12345 > /dev/null & echo foo | nc -6 -v ::1 12345
 
 before_install:
