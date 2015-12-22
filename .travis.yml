@@ -19,6 +19,7 @@ addons:
 #      - clang-3.6
 #      - libboost-system1.55-dev
       - openssl
+      - libssl
 
 script:
   # Debug
@@ -28,6 +29,8 @@ script:
   - nc -6 -l 12345 > /dev/null & echo foo | nc -6 -v ::1 12345
   - dpkg -s openssl
   - dpkg -L openssl
+  - dpkg -s libssl
+  - dpkg -L libssl
 
 before_install:
   - echo "Travis os name $TRAVIS_OS_NAME"
